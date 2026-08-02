@@ -41,49 +41,52 @@ function previousSlide(){
 
 }
 
-document.querySelector(".next").addEventListener("click",function(){
+if(document.querySelector(".next")){
 
-    slideIndex++;
+    document.querySelector(".next").addEventListener("click",function(){
 
-    showSlide(slideIndex);
-
-});
-
-document.querySelector(".prev").addEventListener("click",function(){
-
-    slideIndex--;
-
-    showSlide(slideIndex);
-
-});
-
-dots.forEach((dot,index)=>{
-
-    dot.addEventListener("click",function(){
-
-        slideIndex=index;
+        slideIndex++;
 
         showSlide(slideIndex);
 
     });
 
-});
+    document.querySelector(".prev").addEventListener("click",function(){
 
-setInterval(function(){
+        slideIndex--;
 
-    slideIndex++;
+        showSlide(slideIndex);
+
+    });
+
+    dots.forEach((dot,index)=>{
+
+        dot.addEventListener("click",function(){
+
+            slideIndex=index;
+
+            showSlide(slideIndex);
+
+        });
+
+    });
+
+    setInterval(function(){
+
+        slideIndex++;
+
+        showSlide(slideIndex);
+
+    },5000);
 
     showSlide(slideIndex);
 
-},5000);
+}
 
-showSlide(slideIndex);
-const menuButton = document.querySelector(".menu-toggle");
 
-const navigation = document.querySelector("nav");
+const menuToggle = document.querySelector(".menu-toggle");
+const nav = document.querySelector("nav");
 
-menuButton.addEventListener("click", () => {
-
-    navigation.classList.toggle("active");
-
+menuToggle.addEventListener("click", () => {
+    nav.classList.toggle("active");
 });
